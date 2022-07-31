@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/file/style.css">
+	<link rel="shortcut icon" href="/file/df.ico">
+	<script src="/file/sg.js"></script>
+</head>
+<body>
+	<nav>
+		<input type="checkbox" id="check">
+		<label for="check" class="checkbtn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<label class="logo">File transfer</label>
+		<ul>
+			<li><a class="active" href="/">Home</a></li>
+			<li><a href="http://github.com/abhineetraj1">github</a></li>
+		</ul>
+	</nav>
+	<section>
+		<div>
+			<center>
+			<br>
+			<a href="/send"><button class="main-btn">Send your file(s)</button></a><br><br>
+			<a href="/main"><button class="main-btn">Recieve your file(s)</button></a>
+			</center>
+		</div>
+	</section>
+<script type="text/javascript">
+	if (window.innerHeight < window.innerWidth) {
+		document.getElementsByClassName("main-btn")[0].style.width="50%";
+		document.getElementsByClassName("main-btn")[1].style.width="50%";
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/file/style.css">
+	<link rel="shortcut icon" href="/file/df.ico">
+	<script src="/file/sg.js"></script>
+</head>
+<body>
+	<nav>
+		<input type="checkbox" id="check">
+		<label for="check" class="checkbtn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<label class="logo">File transfer</label>
+		<ul>
+			<li><a class="active" href="/">Home</a></li>
+			<li><a href="http://github.com/abhineetraj1">github</a></li>
+		</ul>
+	</nav>
+	<section>
+		<div><center>
+<p class="pp">Send your file(s)</p><br>
+<form action="/send" method="POST" enctype="multipart/form-data">
+<input id="ff" placeholder="Choose your file(s)" type="file" name="files[]" multiple>
+<br><br>
+<button class="frm-btn">Upload</button>
+</form>
+<br><a href="/"><button class="frm-btn">Back</button></a>
+<br>
+<p class="pp">(Send upto 10 files at once and maximum file size of each file should be 10mb)</p>
+		</div></center>
+	</section>
+
+	<script type="text/javascript">
+		document.getElementById('ff').oninput=upload_files;
+	</script>
+</body>
+</html>

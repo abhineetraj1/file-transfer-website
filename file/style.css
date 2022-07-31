@@ -1,0 +1,150 @@
+* {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
+}
+.mgg{
+	font-size:3vh;
+}
+.lnk{
+	color: white;
+}
+.mn-btn{
+	background:green;
+	color:white;
+	font-size:3vh;
+	height:5vh;
+	border-width:0;
+	border-radius:12px;
+}
+#spk{
+	height:5vh;
+	border:solid;
+	background:white;
+}
+input{
+	font-size:3vh;
+}
+.frm-btn{
+	background:green;
+	color:white;
+	font-size:3vh;
+	height:5vh;
+	border-width:0;
+	border-radius:12px;
+}
+.mi11{
+	font-size:3vh;
+	width:50%;
+	color: white;
+}
+#spk-i{
+	height:5vh;
+}
+div{
+	padding: 1vh;
+}
+body {
+	font-family: montserrat;
+	background: #000000;
+	font-size: 3vh;
+	color: white;
+}
+nav {
+	background: #000000;
+	height: 80px;
+	width: 100%;
+}
+label.logo {
+	color: white;
+	font-size: 35px;
+	line-height: 80px;
+	padding: 0 100px;
+	font-weight: bold;
+}
+nav ul {
+	float: right;
+	margin-right: 20px;
+}
+nav ul li {
+	display: inline-block;
+	line-height: 80px;
+	margin: 0 5px;
+}
+nav ul li a {
+	color: white;
+	font-size: 17px;
+	padding: 7px 13px;
+	border-radius: 3px;
+	text-transform: uppercase;
+}
+a.active, a:hover {
+	background: #000000;
+	transition: .5s;
+}
+.pp{
+	font-size: 4vh;
+}
+.main-btn{
+	font-size:4vh;
+	height:6vh;
+	background:green;
+	text-align: center;
+	border-width:0;
+	border-radius:12px;
+	width:80%;
+	color:white;
+}
+.checkbtn {
+	font-size: 30px;
+	color: white;
+	float: right;
+	line-height: 80px;
+	margin-right: 40px;
+	cursor: pointer;
+	display: none;
+}
+#check {
+	display: none;
+}
+@media (max-width: 952px){
+	label.logo{
+		font-size: 30px;
+		padding-left: 50px;
+	}
+	nav ul li a{
+		font-size: 16px;
+	}
+}
+@media (max-width: 858px){
+	.checkbtn {
+		display: block;
+	}
+	ul{
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background: #000000;
+		top: 80px;
+		left: -100%;
+		text-align: center;
+		transition: all .5s;
+	}
+	nav ul li{
+		display: block;
+		margin: 50px 0;
+		line-height: 30px;
+	}
+	nav ul li a {
+		font-size: 20px;
+	}
+	a:hover, a.active {
+		background: none;
+		color:white;
+	}
+	#check:checked ~ ul {
+		left: 0;
+	}
+}
