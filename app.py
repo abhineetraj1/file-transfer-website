@@ -1,60 +1,91 @@
 import shutil
-from flask import*
-from flask import request
-import datetime
+import qrcode
 import zipfile
+import datetime
 import os
+from flask import*
+from flask import render_template
+import qrcode
 
-app = Flask(__name__,static_folder="file")
+app = Flask(__name__, static_folder="static",template_folder=os.getcwd())
 
-def scp(a):
-	return "<script>alert('"+a+"');</script>"
-def rf(a):
-	return open(a,"r").read()
+url="http://localhost:5000/"
 
-def create_file(n):
-	w = os.listdir(n)
-	g = zipfile.ZipFile((n+".zip"),"w")
-	for o in w:
-		g.write((n+"/"+o))
-	g.close()
+def dtl():
+	try:
+		k=os.listdir()
+		for i in k:
+			if k.index(i) != 4:
+				if (".zip" in i):
+					os.remove(i)
+			else:
+				break
+	except Exception as sr:
+		print(sr)
 
-def rndm():
-	return str(datetime.datetime.now()).replace(":","").replace(".","").replace("-","").replace(" ","")
+def rdm():
+	return str(datetime.datetime.now()).replace(" ","").replace(":","").replace(".","").replace("-","")
 
-@app.route("/",methods=["GET"])
-def aa():
-	return open("index.html","r").read()
+@app.route("/", methods=["GET"])
+def a1():
+	dtl()
+	return render_template("index.html")
 
-@app.route("/main",methods=["GET","POST"])
-def aa1():
-	if (request.method == "GET"):
-		return open("send.html","r").read()
+@app.route("/send", methods=["GET","POST"])
+def a3():
+	if request.method == "POST":
+		g= request.files.getlist("files[]")
+		h=rdm()
+		os.mkdir(f"files/{h}")
+		qrcode.make(f"{url}/data/{h}/").save(f"files/{h}/qrcode.png")
+		for i in g:
+			i.save(f"files/{h}/{i.filename}")
+		return render_template("post.html", file_id=h)
 	else:
-		w = request.form["link"]
-		if (w in os.listdir()):
-			create_file(w)
-			tt =w+".zip"
-			shutil.rmtree(w)
-			return send_file(tt)
-		else:
-			return "<script>alert('no such code found');</script>"+rf("b.html")
-@app.route("/send",methods=["GET","POST"])
-def aa2():
-	if (request.method == "GET"):
-		return rf("main.html")
-	else:
-		files = request.files.getlist('files[]')
-		if (len(files) > 10):
-			return scp("We don't allow more than 10 files to transfer at once")+rf("main.html")
-		else:
-			n = rndm()
-			os.mkdir(n)
-			merr=""
-			for file in files:
-				file.save(n+"/"+file.filename)
-			return rf("output.html").replace("pass-sdfhe8rhe98rhf89erhfe8",n)
+		return render_template("send.html")
 
+@app.route("/recieve", methods=["GET","POST"])
+def a4():
+	if request.method == "GET":
+		return render_template("recieve.html", err="none")
+	else:
+		nm=request.form["id"]
+		if nm in os.listdir("files"):
+			zp = zipfile.ZipFile(f"{nm}.zip", 'w') 
+			for i in os.listdir(f"files/{nm}"):
+				zp.write(f"files/{nm}/{i}")
+			zp.close()
+			shutil.rmtree(f"files/{nm}")
+			return send_file(f"{nm}.zip")
+		else:
+			return render_template("recieve.html", err="No file(s) available")
+
+@app.route("/files/<id>/qrcode.png",methods=["GET"])
+def a6(id):
+	try:
+		return send_file(f"files/{id}/qrcode.png")
+	except:
+		return "404"
+
+@app.route("/data/<nm>")
+def a7(nm):
+	if nm in os.listdir("files"):
+		zp = zipfile.ZipFile(f"{nm}.zip", 'w') 
+		for i in os.listdir(f"files/{nm}"):
+			zp.write(f"files/{nm}/{i}")
+		zp.close()
+		shutil.rmtree(f"files/{nm}")
+		return send_file(f"{nm}.zip")
+	else:
+		return render_template("recieve.html", err="No file(s) available")
+
+@app.errorhandler(404)
+def a12(e):
+	return render_template("err.html",err="404")
+
+@app.errorhandler(501)
+def a12(e):
+	return render_template("err.html",err="501")
 
 if __name__ == '__main__':
 	app.run()

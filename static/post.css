@@ -1,0 +1,21 @@
+content{
+	text-align: center;
+}
+img{
+	margin-top: 3vh;
+	width: 20%;
+	position: relative;
+	left: 40%;
+}
+p{
+	text-align: center;
+	width: 100%;
+	font-family: Bahnschrift;
+	font-size: 20px;
+}
+@media screen and (max-width:680px) {
+	img{
+		width:80%;
+		left: 10%;
+	}
+}

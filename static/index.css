@@ -1,0 +1,68 @@
+body{
+	background: white;
+}
+.as{
+	opacity: 0%;
+}
+#space{
+	color: white;
+	height: 50vh;
+}
+#content{
+	width: 100%;
+	position: fixed;
+	margin: 0vh;
+	height: 100vh;
+	text-align: center;
+	align-items: center;
+	overflow-x: scroll;
+	overflow: scroll;
+	align-items: center;
+	margin-top: 2vh;
+}
+h3{
+	width: 100%;
+	text-align: center;
+	margin-bottom: 2px;
+	font-family: Bahnschrift;
+}
+.cnt{
+	width: 35%;
+	margin: 7%;
+	margin-top: 5px;
+	float: left;
+	border: solid;
+	border-width: 3px;
+	border-color: black;
+	border-radius: 10px;
+	background: #175dff;
+	color: white;
+	font-family: Bahnschrift;
+}
+.cnt-img{
+	width: 100%;
+	margin: 0vh;
+	border-radius: 10px 10px 0px 0px;
+
+}
+@media screen and (max-width: 550px) {
+	.cnt{
+		width: 80%;
+		margin: 10%;
+		margin-top: 5px;
+	}
+	#content{
+		overflow: scroll;
+		overflow-x: scroll;
+	}
+}
+@media screen and (max-width: 500px) {
+	.cnt{
+		width: 80%;
+		margin: 10%;
+	}
+	#content{
+		overflow: scroll;
+		overflow-x: scroll;
+	}
+}

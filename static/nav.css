@@ -1,0 +1,44 @@
+body{
+	padding: 0px;
+	margin: 0px;
+}
+#nv{
+	font-family: Bahnschrift;
+	box-shadow: 0px 0px 10px black;
+	background: #175dff;
+	color: white;
+	font-size: 35px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	text-align: center;
+	width: 100%;
+}
+#toggle{
+	float: left;
+	padding-left: 4px;
+}
+#tgl{
+	display: none;
+	background: #175dff;
+	width: 250px;
+	color: white;
+	font-size: 25px;
+	padding: 2px;
+	margin: 0px;
+	height: 700px;
+}
+li{
+	margin: 3px;
+	text-align: left;
+    list-style-type: none;
+}
+footer{
+	font-family: Agency FB;
+	position: absolute;
+	bottom: 1px;
+	font-size: 18px;
+}
+.li{
+	text-decoration: none;
+	color: white;
+}

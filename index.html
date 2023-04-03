@@ -2,37 +2,45 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="/file/style.css">
-	<link rel="shortcut icon" href="/file/df.ico">
-	<script src="/file/sg.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>File Share</title>
+	<link rel="stylesheet" type="text/css" href="static/nav.css">
+	<link rel="stylesheet" type="text/css" href="static/index.css">
+	<link rel="shortcut icon" href="static/folder.png">
+	<meta charset="utf-8">
+	<meta name="author" content="Abhineet Raj">
 </head>
 <body>
-	<nav>
-		<input type="checkbox" id="check">
-		<label for="check" class="checkbtn">
-			<i class="fas fa-bars"></i>
-		</label>
-		<label class="logo">File transfer</label>
-		<ul>
-			<li><a class="active" href="/">Home</a></li>
-			<li><a href="http://github.com/abhineetraj1">github</a></li>
-		</ul>
-	</nav>
-	<section>
-		<div>
-			<center>
-			<br>
-			<a href="/send"><button class="main-btn">Send your file(s)</button></a><br><br>
-			<a href="/main"><button class="main-btn">Recieve your file(s)</button></a>
-			</center>
+<nav id="nv"><label id="toggle">=</label> File Share</nav>
+
+<div id="tgl">
+	<ul>
+		<a class="li" href="/"><li>Home</li></a>
+		<a class="li" href="/about"><li>Send</li></a>
+		<a class="li" href="/privacy"><li>Recieve</li></a>
+	</ul>
+</div>
+<div id="content">
+	<a href="/recieve">
+		<div class="cnt">
+			<img class="cnt-img" src="static/recieve.png">
+			<p class="cnt-p">Recieve file(s)</p>
 		</div>
-	</section>
-<script type="text/javascript">
-	if (window.innerHeight < window.innerWidth) {
-		document.getElementsByClassName("main-btn")[0].style.width="50%";
-		document.getElementsByClassName("main-btn")[1].style.width="50%";
-	}
-</script>
+	</a>
+	<a href="/send">
+		<div class="cnt">
+			<img class="cnt-img" src="static/send.jpg">
+			<p class="cnt-p">Send file(s)</p>
+		</div>
+	</a>
+	<a class="as">
+		<div class="cnt">
+			<img class="cnt-img" src="static/send.jpg">
+			<p class="cnt-p">Send file(s)</p>
+		</div>
+	</a>
+</div>
+
+<script type="text/javascript" src="static/script.js"></script>
 </body>
 </html>

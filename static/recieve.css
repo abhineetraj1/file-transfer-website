@@ -1,0 +1,26 @@
+#content{
+	text-align: center;
+	width: 100%;
+	margin-top: 3vh;
+}
+input{
+	text-align: left;
+	font-family: Bahnschrift;
+	font-size: 20px;
+	border: solid;
+	border-radius: 5px;
+}
+
+.frm-btn{
+	background: #175dff;
+	font-family: Agency FB;
+	color: white;
+	padding: 1vh;
+	margin: 1vh;
+	border: solid;
+	border-width: 0px;
+	border-radius: 10px;
+	font-size: 23px;
+	padding-left: 3vh;
+	padding-right: 3vh;
+}

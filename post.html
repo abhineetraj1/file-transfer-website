@@ -5,13 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>File Snap</title>
 	<link rel="stylesheet" type="text/css" href="static/nav.css">
-	<link rel="stylesheet" type="text/css" href="static/send.css">
-	<link rel="shortcut icon" href="/static/folder.png">
+	<link rel="stylesheet" type="text/css" href="static/post.css">
+	<link rel="shortcut icon" href="static/folder.png">
 </head>
 <body>
 
 <nav id="nv"><label id="toggle">=</label> File Share</nav>
-
 
 <div id="tgl">
 	<ul>
@@ -21,28 +20,21 @@
 	</ul>
 </div>
 
+
 <div id="content">
-	<div id="drg">
-		<p>Drag and drop file(s) here</p>
-		<br>
-		<p>----OR----</p>
-		<br>
-		<label id="fle"><input type="file" id="files" multiple>Choose your file(s)</label>
-	</div>
+	<img>
+	<p>---OR---</p>
+	<p>File ID: {{file_id}}</p>
+	<p>---OR---</p>
+	<p>Download link - <a href="/data/{{file_id}}">link</a></p>
 </div>
 
-<form method="POST" action="/send" id="frm" enctype="multipart/form-data">
-	<input type="file" name="files[]">
-	<button class="frm-btn">Share</button>
-</form>
-
-<div id="msg">
-	<p>Uploading file(s)</p>
-</div>
+<script type="text/javascript">
+	setTimeout(function() {document.getElementsByTagName("img")[0].src="http://127.0.0.1:5000/files/{{file_id}}/qrcode.png";}, 2000);
+</script>
 <footer>
 	Made by <a href="https://github.com/abhineetraj1">Abhineet Raj</a>
 </footer>
-<script type="text/javascript" src="static/send.js"></script>
 <script type="text/javascript" src="static/script.js"></script>
 </body>
 </html>
